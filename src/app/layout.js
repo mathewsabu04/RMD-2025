@@ -1,3 +1,4 @@
+import { Header } from "./containers/Header";
 import "./globals.css";
 
 export const metadata = {
@@ -5,11 +6,13 @@ export const metadata = {
   description: "RMD app",
 };
 
-// layout wraps page. So everthing in page is equivalent to children
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header />
+        <section className="p-8">{children}</section>
+      </body>
     </html>
   );
 }
