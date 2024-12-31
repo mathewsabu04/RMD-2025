@@ -17,12 +17,11 @@ const firebaseConfig = {
   measurementId: "G-JLHE72QSXP",
 };
 
-
-
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 
+//firebase doucumentation
 export const signInWithGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, new GoogleAuthProvider());
