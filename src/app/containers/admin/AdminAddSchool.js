@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { useAuth } from "@/app/lib/useAuth";
 import { ButtonPrimary } from "@/app/components/Button";
+import { setSchoolDoc } from "@/app/lib/writes";
+
 
 export const AdminAddSchool = () => {
   const [schoolName, setschoolName] = useState("");
