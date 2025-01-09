@@ -4,7 +4,6 @@ import { AdminAddSchool } from "./containers/admin/AdminAddSchool";
 export default async function Home() {
   const schools = await getSchools();
 
-
   return (
     <div className="space-y-8">
       <h1 className="text-3xl font-medium text-center">

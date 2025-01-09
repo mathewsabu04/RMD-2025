@@ -25,7 +25,7 @@ export default async function Page({ params }) {
         &#8592; All School{" "}
       </Link>
       <h1 className="text-3xl font-bold"> {school.schoolName} Dorms</h1>
-      <p>
+      <p className="text-lg text-gray-700">
         Browse {dorms.length} dorm{dorms.length !== 1 && <>s</>}
       </p>
 

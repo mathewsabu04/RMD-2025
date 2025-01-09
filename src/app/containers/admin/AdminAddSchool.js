@@ -1,36 +1,56 @@
 "use client";
-
+import React, { useState } from "react";
 import { useAuth } from "@/app/lib/useAuth";
-import { useState } from "react";
+import { ButtonPrimary } from "@/app/components/Button";
 
 export const AdminAddSchool = () => {
-  const [schoolName, setSchoolName] = useState("");
+  const [schoolName, setschoolName] = useState("");
   const { isAdmin } = useAuth();
 
   if (!isAdmin) {
     return null;
   }
 
+  const submitSchool = async (e) => {
+    e.preventDefault();
+
+    try {
+      if (schoolName.length === 0) {
+        window.alert("Enter a school");
+        return;
+      }
+
+      await setSchoolDoc(schoolName);
+      window.alert(`${schoolName} added`);
+      setschoolName("");
+    } catch (e) {
+      window.alert(e.message);
+    }
+  };
+
   return (
-    <div className="p-6 max-w-md mx-auto border border-gray-300 rounded-lg shadow-md">
-      <p className="text-2xl font-bold mb-5 text-center">Admin</p>
-      <form className="flex flex-col" onSubmit={(e) => e.preventDefault()}>
-        <label htmlFor="schoolName" className="mb-2 text-lg">
-          School Name:
-        </label>
+    <form
+      onSubmit={submitSchool}
+      className="space-y-2 bg-gray-100 border rounded p-4"
+    >
+      <p className="font-medium">Admin</p>
+
+      <div className="space-x-2">
         <input
+          name="schoolName"
+          className="border border-gray-400 rounded p-2"
           type="text"
+          placeholder="School Name"
           value={schoolName}
-          onChange={(e) => setSchoolName(e.target.value)}
-          className="p-2 text-lg mb-3 border border-gray-300 rounded"
+          onChange={(e) => {
+            setschoolName(e.target.value);
+          }}
         />
-        <button
-          type="submit"
-          className="p-3 text-lg bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105"
-        >
+
+        <ButtonPrimary buttonType="submit" onClick={submitSchool}>
           Add School
-        </button>
-      </form>
-    </div>
+        </ButtonPrimary>
+      </div>
+    </form>
   );
 };
