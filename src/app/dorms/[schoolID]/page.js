@@ -1,6 +1,7 @@
 import { getSchoolFromSchoolId } from "@/app/lib/reads";
 import Link from "next/link";
 import { getDorms } from "@/app/lib/reads";
+import { AdminAddDorm } from "@/app/containers/admin/AdminAddDorm";
 
 //the header of the website when the user
 export async function generateMetadata({ params }) {
@@ -43,6 +44,7 @@ export default async function Page({ params }) {
           );
         })}
       </ul>
+      <AdminAddDorm schoolID = {schoolID} />
     </div>
   );
 }
