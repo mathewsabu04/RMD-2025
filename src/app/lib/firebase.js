@@ -1,6 +1,9 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { signInWithPopup } from "firebase/auth";
+import { signOut } from "firebase/auth";
+import { GoogleAuthProvider } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -17,3 +20,24 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+
+export const signInWithGoogle = async () => {
+  try {
+    const result = await signInWithPopup(auth, new GoogleAuthProvider());
+    const user = result.user;
+
+    window.alert(`Signed in with ${user.email}`);
+  } catch (e) {
+    window.alert(e.message);
+  }
+};
+
+export const signOutFromGoogle = async () => {
+  try {
+    await signOut(auth);
+
+    window.alert("Signed out!");
+  } catch (e) {
+    window.alert(e.message);
+  }
+};
