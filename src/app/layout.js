@@ -1,6 +1,5 @@
 import "./globals.css";
 import { Header } from "./containers/Header";
-
 export const metadata = {
   title: "RMD",
   description: "RMD App",

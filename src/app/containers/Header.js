@@ -8,10 +8,10 @@ import { useAuth } from "../lib/useAuth";
 export const Header = () => {
   const { user, loading } = useAuth();
   console.log(user, loading);
-  
+
   return (
     <div className="py-4 px-8 border-b font-medium flex justify-between">
-      <Link href={"/"}>RMD</Link>
+      <Link href={"/"}>Rate My Dorm</Link>
 
       {!loading && (
         <button

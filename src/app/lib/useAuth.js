@@ -11,7 +11,7 @@ export const useAuth = () => {
       setUser(user);
 
       setLoading(false);
-    });
+    })
 
     return () => unsubscribe();
   }, []);
