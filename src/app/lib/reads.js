@@ -1,4 +1,3 @@
-// this file is all the functions to get something
 import { collection, getDocs, query } from "firebase/firestore";
 import { db } from "./firebase";
 
