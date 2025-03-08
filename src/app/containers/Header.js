@@ -10,7 +10,7 @@ export const Header = () => {
   console.log(user, loading);
 
   return (
-    <div className="py-4 px-8 border-b font-medium flex justify-between">
+    <div className="py-4 px-8 border-b border-b-[0.5px] border-gray-300 font-medium flex justify-between">
       <Link href={"/"}>Rate My Dorm</Link>
 
       {!loading && (
